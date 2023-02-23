@@ -16,29 +16,39 @@ namespace WPFCalculator
         //        infoLbl.Content = temp1;
         private void zeroBtn_Click(object sender, EventArgs e)
         {
-            if (mainLbl.Content.ToString() == "" || mainLbl.Content.ToString() == "0")
+            if (mainLbl.Content == null)
             {
                 zeroCounter++;
                 if (zeroCounter == 1)
                 {
-                    var temp=double.Parse(mainLbl.Content.ToString());
-                    temp += 0;
-                    mainLbl.Content = temp;
-                    var temp1 = double.Parse(infoLbl.Content.ToString());
-                    temp1 += 0;
-                    infoLbl.Content = temp1;
+                    mainLbl.Content += "0";
+                    infoLbl.Content += "0";
                 }
 
             }
             else
             {
-                var temp = double.Parse(mainLbl.Content.ToString());
-                temp += 0;
-                mainLbl.Content = temp;
-                var temp1 = double.Parse(infoLbl.Content.ToString());
-                temp1 += 0;
-                infoLbl.Content = temp1;
+                zeroCounter++;
+                if (mainLbl.Content.Equals("0"))
+                {
+                    zeroCounter++;
+                    if (zeroCounter == 1)
+                    {
+                        mainLbl.Content += "0";
+                        infoLbl.Content += "0";
+                    }
+
+                }
+                else
+                {
+                    mainLbl.Content += "0";
+                    infoLbl.Content += "0";
+                }
             }
+            AddClicked = false;
+            MultClicked = false;
+            SubClicked = false;
+            DivClicked = false;
             addCounter = 0;
             subCounter = 0;
             multCounter = 0;
@@ -46,16 +56,28 @@ namespace WPFCalculator
         }
         private void oneBtn_Click(object sender, EventArgs e)
         {
-            if (mainLbl.Content.ToString()=="0")
+            if (mainLbl.Content!= null)
             {
-                mainLbl.Content = "1";
-                infoLbl.Content = "1";
+                if (mainLbl.Content.Equals("0"))
+                {
+                    mainLbl.Content = "1";
+                    infoLbl.Content = "1";
+                }
+                else
+                {
+                    mainLbl.Content += "1";
+                    infoLbl.Content += "1";
+                }
             }
             else
             {
                 mainLbl.Content += "1";               
                 infoLbl.Content +="1";
             }
+            AddClicked = false;
+            MultClicked = false;
+            SubClicked = false;
+            DivClicked = false;
             addCounter = 0;
             subCounter = 0;
             multCounter = 0;
@@ -63,16 +85,28 @@ namespace WPFCalculator
         }
         private void twoBtn_Click(object sender, EventArgs e)
         {
-            if (mainLbl.Content.ToString() == "0")
+            if (mainLbl.Content != null)
             {
-                mainLbl.Content = "2";
-                infoLbl.Content = "2";
+                if (mainLbl.Content.Equals("0"))
+                {
+                    mainLbl.Content = "2";
+                    infoLbl.Content = "2";
+                }
+                else
+                {
+                    mainLbl.Content += "2";
+                    infoLbl.Content += "2";
+                }
             }
             else
             {
                 mainLbl.Content += "2";
                 infoLbl.Content += "2";
             }
+            AddClicked = false;
+            MultClicked = false;
+            SubClicked = false;
+            DivClicked = false;
             addCounter = 0;
             subCounter = 0;
             multCounter = 0;
@@ -80,16 +114,28 @@ namespace WPFCalculator
         }
         private void threeBtn_Click(object sender, EventArgs e)
         {
-            if (mainLbl.Content.ToString() == "0")
+            if (mainLbl.Content != null)
             {
-                mainLbl.Content = "3";
-                infoLbl.Content = "3";
+                if (mainLbl.Content.Equals("0"))
+                {
+                    mainLbl.Content = "3";
+                    infoLbl.Content = "3";
+                }
+                else
+                {
+                    mainLbl.Content += "3";
+                    infoLbl.Content += "3";
+                }
             }
             else
             {
                 mainLbl.Content += "3";
                 infoLbl.Content += "3";
             }
+            AddClicked = false;
+            MultClicked = false;
+            SubClicked = false;
+            DivClicked = false;
             addCounter = 0;
             subCounter = 0;
             multCounter = 0;
@@ -97,16 +143,28 @@ namespace WPFCalculator
         }
         private void fourBtn_Click(object sender, EventArgs e)
         {
-            if (mainLbl.Content.ToString() == "0")
+            if (mainLbl.Content != null)
             {
-                mainLbl.Content = "4";
-                infoLbl.Content = "4";
+                if (mainLbl.Content.Equals("0"))
+                {
+                    mainLbl.Content = "4";
+                    infoLbl.Content = "4";
+                }
+                else
+                {
+                    mainLbl.Content += "4";
+                    infoLbl.Content += "4";
+                }
             }
             else
             {
                 mainLbl.Content += "4";
                 infoLbl.Content += "4";
             }
+            AddClicked = false;
+            MultClicked = false;
+            SubClicked = false;
+            DivClicked = false;
             addCounter = 0;
             subCounter = 0;
             multCounter = 0;
@@ -115,17 +173,28 @@ namespace WPFCalculator
         private void fiveBtn_Click(object sender, EventArgs e)
         {
 
-            if (mainLbl.Content.ToString() == "0")
+            if (mainLbl.Content != null)
             {
-                mainLbl.Content = "5";
-                infoLbl.Content = "5";
-
+                if (mainLbl.Content.Equals("0"))
+                {
+                    mainLbl.Content = "5";
+                    infoLbl.Content = "5";
+                }
+                else
+                {
+                    mainLbl.Content += "5";
+                    infoLbl.Content += "5";
+                }
             }
             else
             {
                 mainLbl.Content += "5";
                 infoLbl.Content += "5";
             }
+            AddClicked = false;
+            MultClicked = false;
+            SubClicked = false;
+            DivClicked = false;
             addCounter = 0;
             subCounter = 0;
             multCounter = 0;
@@ -133,16 +202,28 @@ namespace WPFCalculator
         }
         private void sixBtn_Click(object sender, EventArgs e)
         {
-            if (mainLbl.Content.ToString() == "0")
+            if (mainLbl.Content != null)
             {
-                mainLbl.Content = "6";
-                infoLbl.Content = "6";
+                if (mainLbl.Content.Equals("0"))
+                {
+                    mainLbl.Content = "6";
+                    infoLbl.Content = "6";
+                }
+                else
+                {
+                    mainLbl.Content += "6";
+                    infoLbl.Content += "6";
+                }
             }
             else
             {
                 mainLbl.Content += "6";
                 infoLbl.Content += "6";
             }
+            AddClicked = false;
+            MultClicked = false;
+            SubClicked = false;
+            DivClicked = false;
             addCounter = 0;
             subCounter = 0;
             multCounter = 0;
@@ -150,16 +231,28 @@ namespace WPFCalculator
         }
         private void sevenBtn_Click(object sender, EventArgs e)
         {
-            if (mainLbl.Content.ToString() == "0")
+            if (mainLbl.Content != null)
             {
-                mainLbl.Content = "7";
-                infoLbl.Content = "7";
+                if (mainLbl.Content.Equals("0"))
+                {
+                    mainLbl.Content = "7";
+                    infoLbl.Content = "7";
+                }
+                else
+                {
+                    mainLbl.Content += "7";
+                    infoLbl.Content += "7";
+                }
             }
             else
             {
                 mainLbl.Content += "7";
                 infoLbl.Content += "7";
             }
+            AddClicked = false;
+            MultClicked = false;
+            SubClicked = false;
+            DivClicked = false;
             addCounter = 0;
             subCounter = 0;
             multCounter = 0;
@@ -167,16 +260,28 @@ namespace WPFCalculator
         }
         private void eightBtn_Click(object sender, EventArgs e)
         {
-            if (mainLbl.Content.ToString() == "0")
+            if (mainLbl.Content != null)
             {
-                mainLbl.Content = "8";
-                infoLbl.Content = "8";
+                if (mainLbl.Content.Equals("0"))
+                {
+                    mainLbl.Content = "8";
+                    infoLbl.Content = "8";
+                }
+                else
+                {
+                    mainLbl.Content += "8";
+                    infoLbl.Content += "8";
+                }
             }
             else
             {
                 mainLbl.Content += "8";
                 infoLbl.Content += "8";
             }
+            AddClicked = false;
+            MultClicked = false;
+            SubClicked = false;
+            DivClicked = false;
             addCounter = 0;
             subCounter = 0;
             multCounter = 0;
@@ -184,16 +289,28 @@ namespace WPFCalculator
         }
         private void nineBtn_Click(object sender, EventArgs e)
         {
-            if (mainLbl.Content.ToString() == "0")
+            if (mainLbl.Content != null)
             {
-                mainLbl.Content = "9";
-                infoLbl.Content = "9";
+                if (mainLbl.Content.Equals("0"))
+                {
+                    mainLbl.Content = "9";
+                    infoLbl.Content = "9";
+                }
+                else
+                {
+                    mainLbl.Content += "9";
+                    infoLbl.Content += "9";
+                }
             }
             else
             {
                 mainLbl.Content += "9";
                 infoLbl.Content += "9";
             }
+            AddClicked = false;
+            MultClicked = false;
+            SubClicked = false;
+            DivClicked = false;
             addCounter = 0;
             subCounter = 0;
             multCounter = 0;

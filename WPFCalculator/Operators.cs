@@ -9,199 +9,219 @@ namespace WPFCalculator
 {
     public partial class MainWindow
     {
+        public bool AddClicked { get; set; } = false;
+        public bool SubClicked { get; set; } = false;
+        public bool MultClicked { get; set; } = false;
+        public bool DivClicked { get; set; } = false;
         private void addBtn_Click(object sender, EventArgs e)
         {
-            try
+            if (SubClicked==false && MultClicked==false && DivClicked==false)
             {
-                if (infoLbl.Content.ToString()!=string.Empty)
+                AddClicked = true;
+                try
                 {
-                    addCounter++;
-                    if (addCounter == 1)
+                    if (infoLbl.Content.ToString() != string.Empty)
                     {
-                        infoLbl.Content += "+";
-                        if (myoperator != ' ')
+                        addCounter++;
+                        if (addCounter == 1)
                         {
-                            before = myoperator;
-                            myoperator = '+';
-                        }
-                        else
-                        {
-                            before = '+';
-                            myoperator = '+';
-                        }
-                        clickCounter = 0;
-                        zeroCounter = 0;
+                            infoLbl.Content += "+";
+                            if (myoperator != ' ')
+                            {
+                                before = myoperator;
+                                myoperator = '+';
+                            }
+                            else
+                            {
+                                before = '+';
+                                myoperator = '+';
+                            }
+                            clickCounter = 0;
+                            zeroCounter = 0;
 
-                        if (operatorCounter == 0)
-                        {
-                            first = double.Parse(mainLbl.Content.ToString());
-                            Calculate();
+                            if (operatorCounter == 0)
+                            {
+                                first = double.Parse(mainLbl.Content.ToString());
+                                Calculate();
+                            }
+                            else
+                            {
+                                first = myanswer;
+                                second = double.Parse(mainLbl.Content.ToString());
+                                Calculate();
+                            }
+                            operatorCounter++;
                         }
-                        else
-                        {
-                            first = myanswer;
-                            second = double.Parse(mainLbl.Content.ToString());
-                            Calculate();
-                        }
-                        operatorCounter++;
+                        mainLbl.Content = "";
                     }
-                    mainLbl.Content = "";
+                    else
+                    {
+                        throw new Exception("You have to write number before operator");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    throw new Exception("You have to write number before operator");
+                    Console.WriteLine(ex.Message);
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
             }
         }
 
         private void subtractBtn_Click(object sender, EventArgs e)
         {
-            try
+            if (AddClicked == false && MultClicked == false && DivClicked == false)
             {
-                if (infoLbl.Content.ToString() != string.Empty)
+                SubClicked = true;
+                try
                 {
-                    subCounter++;
-                    if (subCounter == 1)
+                    if (infoLbl.Content.ToString() != string.Empty)
                     {
-                        infoLbl.Content += "-";
-                        if (myoperator != ' ')
+                        subCounter++;
+                        if (subCounter == 1)
                         {
-                            before = myoperator;
-                            myoperator = '-';
-                        }
-                        else
-                        {
-                            before = '-';
-                            myoperator = '-';
-                        }
-                        clickCounter = 0;
-                        zeroCounter = 0;
+                            infoLbl.Content += "-";
+                            if (myoperator != ' ')
+                            {
+                                before = myoperator;
+                                myoperator = '-';
+                            }
+                            else
+                            {
+                                before = '-';
+                                myoperator = '-';
+                            }
+                            clickCounter = 0;
+                            zeroCounter = 0;
 
-                        if (operatorCounter == 0)
-                        {
-                            first = double.Parse(mainLbl.Content.ToString());
-                            Calculate();
+                            if (operatorCounter == 0)
+                            {
+                                first = double.Parse(mainLbl.Content.ToString());
+                                Calculate();
+                            }
+                            else
+                            {
+                                first = myanswer;
+                                second = double.Parse(mainLbl.Content.ToString());
+                                Calculate();
+                            }
+                            operatorCounter++;
                         }
-                        else
-                        {
-                            first = myanswer;
-                            second = double.Parse(mainLbl.Content.ToString());
-                            Calculate();
-                        }
-                        operatorCounter++;
+                        mainLbl.Content = "";
                     }
-                    mainLbl.Content = "";
+                    else
+                    {
+                        throw new Exception("You have to write number before operator");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    throw new Exception("You have to write number before operator");
+                    Console.WriteLine(ex.Message);
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
             }
         }
 
         private void multiplyBtn_Click(object sender, EventArgs e)
         {
-            try
+            if (SubClicked == false && AddClicked == false && DivClicked == false)
             {
-                if (infoLbl.Content.ToString() != string.Empty)
+                MultClicked = true;
+                try
                 {
-                    multCounter++;
-                    if (multCounter == 1)
+                    if (infoLbl.Content.ToString() != string.Empty)
                     {
-                        infoLbl.Content += "x";
-                        if (myoperator != ' ')
+                        multCounter++;
+                        if (multCounter == 1)
                         {
-                            before = myoperator;
-                            myoperator = 'x';
+                            infoLbl.Content += "x";
+                            if (myoperator != ' ')
+                            {
+                                before = myoperator;
+                                myoperator = 'x';
+                            }
+                            else
+                            {
+                                before = 'x';
+                                myoperator = 'x';
+                            }
+                            clickCounter = 0;
+                            zeroCounter = 0;
+                            if (operatorCounter == 0)
+                            {
+                                first = double.Parse(mainLbl.Content.ToString());
+                                Calculate();
+                            }
+                            else
+                            {
+                                first = myanswer;
+                                second = double.Parse(mainLbl.Content.ToString());
+                                Calculate();
+                            }
+                            operatorCounter++;
                         }
-                        else
-                        {
-                            before = 'x';
-                            myoperator = 'x';
-                        }
-                        clickCounter = 0;
-                        zeroCounter = 0;
-                        if (operatorCounter == 0)
-                        {
-                            first = double.Parse(mainLbl.Content.ToString());
-                            Calculate();
-                        }
-                        else
-                        {
-                            first = myanswer;
-                            second = double.Parse(mainLbl.Content.ToString());
-                            Calculate();
-                        }
-                        operatorCounter++;
+                        mainLbl.Content = "";
                     }
-                    mainLbl.Content = "";
+                    else
+                    {
+                        throw new Exception("You have to write number before operator");
+                    }
                 }
-                else
+                catch
                 {
-                    throw new Exception("You have to write number before operator");
-                }
-            }
-            catch
-            {
 
+                }
             }
         }
 
         private void divideBtn_Click(object sender, EventArgs e)
         {
-            try
+            if (SubClicked == false && AddClicked == false && MultClicked == false)
             {
-                if (infoLbl.Content.ToString() != string.Empty)
+                DivClicked = true;
+                try
                 {
-                    divCounter++;
-                    if (divCounter == 1)
+                    if (infoLbl.Content.ToString() != string.Empty)
                     {
-                        infoLbl.Content += "/";
-                        if (myoperator != ' ')
+                        divCounter++;
+                        if (divCounter == 1)
                         {
-                            before = myoperator;
-                            myoperator = '/';
-                        }
-                        else
-                        {
-                            before = '/';
-                            myoperator = '/';
-                        }
+                            infoLbl.Content += "/";
+                            if (myoperator != ' ')
+                            {
+                                before = myoperator;
+                                myoperator = '/';
+                            }
+                            else
+                            {
+                                before = '/';
+                                myoperator = '/';
+                            }
 
-                        clickCounter = 0;
-                        zeroCounter = 0;
+                            clickCounter = 0;
+                            zeroCounter = 0;
 
-                        if (operatorCounter == 0)
-                        {
-                            first = double.Parse(mainLbl.Content.ToString());
-                            Calculate();
+                            if (operatorCounter == 0)
+                            {
+                                first = double.Parse(mainLbl.Content.ToString());
+                                Calculate();
+                            }
+                            else
+                            {
+                                first = myanswer;
+                                second = double.Parse(mainLbl.Content.ToString());
+                                Calculate();
+                            }
+                            operatorCounter++;
                         }
-                        else
-                        {
-                            first = myanswer;
-                            second = double.Parse(mainLbl.Content.ToString());
-                            Calculate();
-                        }
-                        operatorCounter++;
+                        mainLbl.Content = "";
                     }
-                    mainLbl.Content = "";
+                    else
+                    {
+                        throw new Exception("You have to write number before operator");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    throw new Exception("You have to write number before operator");
+                    Console.WriteLine(ex.Message);
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
             }
         }
     }
