@@ -26,7 +26,7 @@
             <Grid Grid.Row="0">
                 <Label Name="mainLbl" Content="0" Width="330" Height="50" Foreground="#0D1F2D" Background="Transparent" FontFamily="Xenara" FontWeight="Bold" FontSize="40" HorizontalContentAlignment="Right" Margin="0,120,0,0">
                 </Label>
-                <Label Name="infoLbl" Foreground="#0D1F2D" Background="Transparent" FontSize="20" Width="300" Height="40" HorizontalAlignment="Right" Margin="0,60,0,90" HorizontalContentAlignment="Right"></Label>
+                <Label Name="infoLbl" Content="0" Foreground="#0D1F2D" Background="Transparent" FontSize="20" Width="300" Height="40" HorizontalAlignment="Right" Margin="0,60,0,90" HorizontalContentAlignment="Right"></Label>
             </Grid>
             <Grid Grid.Row="1">
                 <Button Name="cubeBtn" Width="70" Height="50" HorizontalAlignment="Left" Margin="10,0,0,320" Content="x^3" FontFamily="Xenara" FontSize="24" Click="cubeBtn_Click">

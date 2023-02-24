@@ -112,7 +112,7 @@ namespace WPFCalculator
             clickCounter++;
             if (clickCounter == 1)
             {
-                if (mainLbl.Content == null)
+                if (mainLbl.Content == null || mainLbl.Content=="")
                 {
                     mainLbl.Content += "0.";
                     infoLbl.Content += "0.";
