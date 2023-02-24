@@ -69,7 +69,7 @@ namespace WPFCalculator
         {
             try
             {
-                if (!infoLbl.Content.ToString().Equals(""))
+                if (mainLbl.Content != null)
                 {
                     if (!infoLbl.Content.Equals("0"))
                     {
@@ -81,7 +81,14 @@ namespace WPFCalculator
                         else
                         {
                             mainLbl.Content = "-" + mainLbl.Content;
-                            infoLbl.Content = "-" + infoLbl.Content;
+                            if (addCounter>0 || subCounter>0 || multCounter>0 || divCounter>0)
+                            {
+                                infoLbl.Content = infoLbl.Content + "-";
+                            }
+                            else
+                            {
+                                infoLbl.Content = "-" + infoLbl.Content;
+                            }
                         }
                     }
                     else
@@ -105,7 +112,7 @@ namespace WPFCalculator
             clickCounter++;
             if (clickCounter == 1)
             {
-                if (infoLbl.Content.ToString().Equals(""))
+                if (mainLbl.Content == null)
                 {
                     mainLbl.Content += "0.";
                     infoLbl.Content += "0.";
